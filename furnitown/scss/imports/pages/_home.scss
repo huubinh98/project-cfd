@@ -116,28 +116,27 @@
         @include text(1.1rem, arial, 1.1rem, $black-cl, uppercase);
       }
     }
-
     .menu-hover {
       &.hidden {
         display: none;
       }
       @include size(150px);
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      padding: 30px 0;
+      cursor: pointer;
+      text-align: center;
+      flex-direction: column;
+      background-color: $bg-cl;
+      transform: translateY(-50%);
+      @include transition($t linear);
       -webkit-border-top-right-radius: 3px;
       -webkit-border-bottom-right-radius: 3px;
       -moz-border-radius-topright: 3px;
       -moz-border-radius-bottomright: 3px;
       border-top-right-radius: 3px;
       border-bottom-right-radius: 3px;
-      background-color: $bg-cl;
-      position: absolute;
-      z-index: 10;
-      top: 50%;
-      transform: translateY(-50%);
-      padding: 30px 0;
-      flex-direction: column;
-      cursor: pointer;
-      @include transition($t linear);
-      text-align: center;
       .logo {
         img {
           max-width: 40px;
@@ -222,8 +221,22 @@
   }
 
   .product {
+    position: relative;
     margin-top: 150px;
+    --height: 415px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -58px;
+      background-color: #132539;
+      width: 100%;
+      height: var(--height);
+    }
     .product-workroom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       &-text {
         max-width: 390px;
         width: 100%;
@@ -232,16 +245,57 @@
         }
       }
       &-content {
-        margin-top: 94px;
         .pd-bt {
-          padding-bottom: 53%;
+          @include paddingBottomToPercent(264px, 500px);
         }
       }
     }
 
-    .product-livingroom{
+    .product-livingroom {
       .pd-bt {
-        padding-bottom: 92%;
+        // padding-bottom: 87.4%;
+        @include paddingBottomToPercent(460px, 500px);
+      }
+    }
+
+    .product-kitchen {
+      .pd-bt {
+        @include paddingBottomToPercent(366px, 100%);
+      }
+    }
+
+    .product-bedroom {
+      .pd-bt {
+        @include paddingBottomToPercent(560px, 500px);
+      }
+    }
+
+    .product-bathroom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .pd-bt {
+        @include paddingBottomToPercent(354px, 500px);
+      }
+      &-text {
+        position: relative;
+        z-index: 1;
+        p {
+          max-width: 445px;
+          width: 100%;
+          @include text(1.8rem, "Ei", 4rem, $white-cl, inherit);
+          text-align: right;
+          margin-left: auto;
+        }
+        > img {
+          position: absolute;
+          // right: -10%;
+          // top: 54px;
+          bottom: 0;
+          right: 0;
+          transform: translate(10%, 40%);
+          z-index: -1;
+        }
       }
     }
   }

@@ -209,3 +209,8 @@
 		background: $bgThumb;
 	}
 }
+
+@mixin paddingBottomToPercent($height, $width) {
+
+	padding-bottom: $height / $width * 100%;	
+}
