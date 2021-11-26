@@ -11,7 +11,7 @@ header {
         gap: 30px;
         padding-top: 53px;
         li {
-            @include text(1.1rem,"hv", normal, $black-cl, uppercase);
+            @include text(1.1rem,"A", normal, $black-cl, uppercase);
             @include transition($t);
             cursor: pointer;
             letter-spacing: 0.1em;
@@ -30,5 +30,9 @@ header {
                 }
             }
         }
+    }
+
+    @include xs {
+        display: none;
     }
 }

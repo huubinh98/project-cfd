@@ -121,6 +121,16 @@ article {
   &.lh {
     margin-top: 18px;
   }
+
+  @include xs {
+    @include text(2.2rem, A, 2.2rem, $black-cl, uppercase);
+  }
+}
+
+.heading-item {
+  text-align: center;
+  @include text(3.2rem, E, 5rem, $black-cl, uppercase);
+  letter-spacing: 0.1em;
 }
 
 .green {
@@ -131,8 +141,16 @@ article {
   background-color: rgba(131, 102, 43, 0.9);
 }
 
+.hidden {
+  display: none;
+}
+
 .mt {
   margin-top: 42px;
+}
+
+.mb {
+  margin-bottom: 34px;
 }
 
 .btn {
@@ -143,193 +161,40 @@ article {
 }
 
 .btn-text {
-  @include text(1.1rem, "arial", normal, $white-cl, uppercase);
+  &.--ml {
+    margin-right: 20px;
+  }
+  @include text(1.1rem, Arial, normal, $white-cl, uppercase);
+  @include xs {
+    @include text(1.8rem, Arial, normal, $white-cl, uppercase);
+  }
+}
+
+.btn-main {
+  @include text(1.1rem, A, normal, $black-cl, uppercase);
+  border: 1px solid $bg-cl;
+  padding: 12px 50px;
+  transition: all $t;
+  display: block;
+  width: fit-content;
+  &:hover {
+    color: $white-cl;
+    background-color: $black-cl;
+  }
+  @include sm {
+  }
+  @include xs {
+    font-size: 1.6rem;
+    padding: 16px 50px;
+  }
 }
 
 .pd {
   padding-top: 150px;
 }
 
-.menu-fixed {
-  &.active {
-    display: block;
-  }
-  display: none;
-  @include size(100%, 70px);
-  background-color: $bg-cl;
-  transition: all $t;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  .container {
-    @include size(100%);
-  }
-  .menu {
-    @include size(100%);
-    @include flex(space-between, center);
-    .menu-item {
-      height: 100%;
-      @include flex(center, center);
-      position: relative;
-      padding: 0 20px;
-      a {
-        @include text(1.1rem, Arial, normal, $white-cl, uppercase);
-      }
-      &::before {
-        content: "";
-        @include size(0px, 2px);
-        position: absolute;
-        bottom: 14px;
-        left: 0;
-        background-color: $white-cl;
-        transform-origin: left;
-        // transform: scaleX(0);
-        transition: $t;
-      }
-      &:hover::before {
-        @include size(100%, 2px);
-        transform-origin: left;
-        // transform: scaleX(1);
-      }
-    }
-    img {
-      width: 56px;
-    }
-  }
-}
-
-.menu-left {
-  &.active {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  background-color: #1d2021;
-  max-width: 500px;
-  width: 100%;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  padding: 40px;
-  transform: translateX(-100%);
-  opacity: 0;
-  transition: all $t;
-  &-header {
-    @include flex(space-between, center);
-    span {
-      @include text(1.1rem, "A", normal, $white-cl, uppercase);
-      padding: 0 10px;
-    }
-    .contact {
-      @include flex(center, center);
-      a {
-        padding: 0 10px;
-        img {
-          width: 20px;
-          transition: $t;
-        }
-        &:hover {
-          img {
-            opacity: 0.4;
-          }
-        }
-      }
-    }
-  }
-  &-content {
-    margin-top: 60px;
-    padding: 0 10px;
-    display: flex;
-    .btn-menufeft {
-      position: relative;
-      width: 100px;
-      height: 118px;
-      &::before {
-        content: "";
-        position: absolute;
-        left: -20px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 80px;
-        height: 2px;
-        background-color: $white-cl;
-      }
-      img {
-        width: 40px;
-      }
-      .close {
-        > img {
-          transition: $t;
-          &:hover {
-            cursor: pointer;
-            opacity: 0.4;
-            transition: $t;
-            transform: scale(0.8);
-          }
-        }
-      }
-      .logo-menuleft {
-        margin-bottom: 34px;
-      }
-    }
-
-    .menu-main {
-      flex: 1;
-      .menu {
-        padding-top: 8px;
-        margin-left: 20px;
-        &-item {
-          padding-bottom: 26px;
-          position: relative;
-          cursor: pointer;
-          &::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 13px;
-            @include size(0, 1px);
-            transition: all $t;
-          }
-          &:hover::before {
-            @include size(100%, 1px);
-            background-color: $white-cl;
-          }
-          &:hover {
-            .menu-link {
-              color: $white-cl;
-            }
-          }
-          .menu-link {
-            @include text(2.6rem, E, normal, $text-menu, uppercase);
-            transition: all $t;
-          }
-          &:last-child {
-            position: relative;
-            &::after {
-              content: "";
-              position: absolute;
-              top: 3px;
-              left: 46px;
-              @include size(1px, 18px);
-              background-color: $text-menu;
-            }
-            .menu-link {
-              @include text(1.4rem, Eb, normal, $text-menu, uppercase);
-              padding-right: 20px;
-            }
-            .menu-link:first-child,
-            .menu-link:last-child {
-              &:hover {
-                color: $white-cl;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+.pd-service {
+  padding-top: calc(var(--pd) - 10px);
 }
 
 .overlay {
@@ -393,6 +258,410 @@ article {
       pointer-events: auto;
       cursor: pointer;
       transform: scale(1);
+    }
+  }
+}
+
+.line-btn {
+  margin-top: 18px;
+  span {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background-color: $white-cl;
+    position: relative;
+    cursor: pointer;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background-color: $white-cl;
+      transform: translate(-50%, -50%);
+    }
+    &::before {
+      top: 10px;
+    }
+    &::after {
+      top: -10px;
+    }
+  }
+}
+
+// ----pro
+
+.show-all {
+  &.hidden {
+    display: none;
+  }
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  span {
+    @include text(1.2rem, A, 2rem, $black-cl, uppercase);
+    transition: all $t;
+    position: relative;
+    right: 0;
+  }
+  img {
+    transition: all $t;
+    position: relative;
+    width: 20px;
+    left: 0;
+  }
+  &:hover {
+    span {
+      transition: all $t;
+      right: 45px;
+    }
+    img {
+      transition: all $t;
+      left: 40px;
+    }
+  }
+
+  @include xs {
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-left: auto;
+  }
+}
+
+.btn-play {
+  &.hidden {
+    display: none;
+  }
+  a {
+    @include size(70px);
+    background-color: $black-cl;
+    border-radius: 50%;
+    position: relative;
+    margin-left: auto;
+    bottom: 104px;
+    display: block;
+    transition: all $t;
+    img {
+      width: 12px;
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      transform: translate(-50%, -50%);
+      transition: all $t;
+    }
+    &:hover {
+      opacity: 0.6;
+      img {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+.product-list {
+  --pd: 50px;
+  position: relative;
+  padding: var(--pd) 0;
+  // margin: 0 -15px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #373739;
+  }
+  .product-item {
+    --gap: 30px;
+    position: relative;
+    margin-right: var(--gap);
+    // margin: 0 15px;
+    width: calc(100% / 3 - var(--gap) / 2);
+    // .flickity-slider{
+    //   padding: 15px;
+    // }
+    &:hover {
+      .img {
+        img {
+          filter: brightness(77%);
+          -webkit-filter: brightness(77%);
+          -moz-filter: brightness(77%);
+          transform: translate(-50%, -50%) scale(1.2);
+          transition: all $s;
+        }
+      }
+    }
+    .img {
+      overflow: hidden;
+      height: 0;
+      @include paddingBottomToPercent(366px, 322px);
+      position: relative;
+      img {
+        filter: brightness(100%);
+        -webkit-filter: brightness(100%);
+        -moz-filter: brightness(100%);
+        transition: all $t;
+        @include size(100%);
+        object-fit: cover;
+        @include mid;
+        transform: translate(-50%, -50%) scale(1);
+        transition: all $s;
+      }
+    }
+    .info {
+      padding-top: 28px;
+      height: 110px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      transition: all $t;
+      h4 {
+        @include text(1.8rem, Arial, 2rem, $black-cl, inherit);
+        transition: all $t;
+        @include overtext(1);
+      }
+      p {
+        @include text(1.2rem, Arial, 4rem, $black-cl, uppercase);
+        letter-spacing: 0.1em;
+        transition: all $t;
+      }
+      .desc-info {
+        @include overtext(3);
+      }
+
+      a {
+        @include text(1.2rem, A, 1.4rem, $black-cl, uppercase);
+        width: fit-content;
+        img {
+          position: relative;
+          transition: all $t;
+          left: 0;
+          width: 20px;
+          margin-right: 10px;
+        }
+        span {
+          transition: all $t;
+          position: relative;
+          right: 0;
+        }
+        &:hover {
+          img {
+            left: 70px;
+          }
+          span {
+            right: 23px;
+          }
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      // left: calc(-1 * var(--gap) / 2);
+      right: calc(-1 * var(--gap) / 2);
+      width: 1px;
+      height: 100%;
+      background-color: $text-menu;
+    }
+  }
+  @include sm {
+    margin: 0;
+    // &::after {
+    //   position: inherit;
+    // }
+    .product-item {
+      width: calc(100% / 2 - var(--gap) / 2);
+    }
+    .img {
+      padding-bottom: 64%;
+    }
+  }
+
+  @include xs {
+    --pd: 30px;
+    .product-item {
+      width: 100%;
+      .info {
+        h4 {
+          font-size: 2rem;
+          line-height: 2.4rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+        a {
+          font-size: 1.3rem;
+        }
+      }
+      .img {
+        padding-bottom: 64%;
+      }
+    }
+    .flickity-viewport {
+      padding-bottom: 100%;
+    }
+  }
+}
+
+.banner {
+  --pdbanner: 155px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+  }
+
+  .heading-product {
+    padding: var(--pdbanner) 0;
+    @include text(2.4rem, E, 5rem, $white-cl, uppercase);
+    letter-spacing: 0.1em;
+    max-width: 540px;
+    width: 100%;
+    text-align: right;
+    margin-left: auto;
+    position: relative;
+  }
+
+  .menu-hover {
+    bottom: 0;
+    top: inherit;
+    transform: inherit;
+  }
+
+  @include xs {
+    margin-top: var(--heightheader);
+    --pdbanner: 100px;
+  }
+}
+
+.product-desc {
+  padding-top: 46px;
+  @include flex(space-between, flex-end);
+  .content-left {
+    @include flex(space-between, center);
+    .number {
+      @include text(9rem, E, 9rem, $yellow-cl, inherit);
+    }
+    .content {
+      margin-left: 26px;
+      max-width: 440px;
+      width: 100%;
+      .heading {
+        @include text(1.8rem, E, 4rem, $black-cl, uppercase);
+      }
+      .desc {
+        @include text(1.2rem, Arial, 2rem, $black-cl, inherit);
+      }
+    }
+  }
+
+  @include sm {
+    padding-top: 0;
+  }
+
+  @include xs {
+    padding-top: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    .content-left {
+      @include flex(space-between, flex-start);
+      flex-direction: column;
+      .content {
+        margin-left: 0;
+        .heading {
+          font-size: 2.2rem;
+          // font-weight: bold
+        }
+        .desc {
+          @include text(1.8rem, Arial, 3rem, $black-cl, inherit);
+          // text-align: justify;
+        }
+      }
+      .number {
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+    }
+  }
+}
+
+.service-content {
+  &.--ct {
+    .title,
+    .desc {
+      text-align: center;
+      max-width: 610px;
+      width: 100%;
+      margin: auto;
+    }
+  }
+  padding: 0 25px;
+  .title {
+    @include text(2.6rem, E, 5rem, $black-cl, inherit);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .serive-text {
+    @include flex(space-between, flex-start);
+  }
+  .text-content {
+    flex: 1;
+    .desc {
+      letter-spacing: 0.1em;
+      line-height: 2.6rem;
+      &.--rq {
+        padding-top: 20px;
+      }
+    }
+  }
+  .btn-service {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  @include sm {
+    .serive-text {
+      flex-direction: column;
+      .btn-service {
+        margin: 30px auto 0;
+      }
+    }
+  }
+}
+
+.paging {
+  @include flex(center, center);
+  gap: 10px;
+  margin-bottom: 80px;
+  li {
+    a {
+      color: $black-cl;
+      padding: 8px 12px;
+      display: block;
+      border: 1px solid transparent;
+      line-height: 1.2rem;
+      &.active {
+        border: 1px solid $text-menu;
+        background-color: #ebebeb;
+      }
+      &:hover {
+        border: 1px solid $text-menu;
+        background-color: #ebebeb;
+      }
     }
   }
 }

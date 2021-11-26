@@ -1,0 +1,135 @@
+.newdetailspage {
+    header {
+        width: 100%;
+        height: 100px;
+        position: inherit;
+        .container-fluid {
+            @include flex(space-between, center);
+            height: 100%;
+            ul {
+                padding-top: inherit;
+                align-items: center;
+                height: 100%;
+            }
+            .toback {
+                height: 100%;
+                a {
+                    height: 100%;
+                    @include flex(space-between, center);
+                    span {
+                        @include text(1.1rem,"A", normal, $black-cl, uppercase);
+                        transition: all $t;
+                        position: relative;
+                        right: 0;
+                    }
+                    img {
+                        margin-left: 16px;
+                        display: flex;
+                        transform: scale(-1);
+                        width: 30px;
+                        position: relative;
+                        left: 0;
+                        transition: all $t;
+                    }
+                    &:hover {
+                        opacity: 0.6;
+                        span {
+                            right: -36px;
+                        }
+                        img {
+                            left: -157px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .new-posts {
+        padding-top: 70px;
+        .img {
+            width: 100%;
+            height: 0;
+            padding-bottom: 45.7%;
+            position: relative;
+            overflow: hidden;
+            img {
+                position: absolute;
+                @include size(100%);
+                object-fit: cover;
+            }
+        }
+        .article-details {
+            max-width: 750px;
+            width: 100%;
+            margin-top: 64px;
+            margin-bottom: 130px;
+            .heading {
+                @include text(2rem, E, 3.2rem, $black-cl, uppercase);
+                letter-spacing: 0.1em;
+            }
+            h3 {
+                @include text(1.2rem, A, 2.2rem, $black-cl, uppercase);
+                letter-spacing: 0.1em;
+                max-width: 680px;
+                margin: 36px 0;
+            }
+            p {
+                @include text(1.2rem, Arial, 2.2rem, $black-cl, inherit);
+                letter-spacing: 0.1em;
+                margin-top: 38px;
+            }
+            .date {
+                font-style: italic;
+            }
+            .desc {
+                max-width: 680px;
+            }
+        }
+    }
+
+    .other-posts {
+        h2 {
+            @include text(1.2rem, A, 2.2rem, $black-cl, uppercase);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 36px;
+            &:before,
+            &:after {
+                content: "";
+                height: 1px;
+                width: 40%;
+                background-color: #665d49;
+            }
+        }
+    }
+
+    @include sm {
+        .other-posts {
+            h2 {
+            &:before,
+            &:after {
+                width: 36%;
+            }
+            }
+        }
+    }
+
+    @include xs {
+        .new-posts {
+            margin-top: var(--heightheader);
+            .article-details {
+                margin-bottom: 60px;
+            }
+        }
+        .other-posts {
+            h2 {
+                &:before,
+            &:after {
+                width: 24%;
+            }
+            }
+        }
+    }
+}

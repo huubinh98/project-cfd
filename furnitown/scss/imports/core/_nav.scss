@@ -1,201 +1,435 @@
 // css navigator (Menu)
-.list-menu {
-    .menu-fixed {
-        &.active {
-            display: block;
-        }
-        display: none;
-        @include size(100%, 70px);
-        background-color: $bg-cl;
-        transition: all $t;
-        position: fixed;
-        top: 0;
+
+.menu-fixed {
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  transform: translateY(-100%);
+  opacity: 0;
+  @include size(100%, 70px);
+  background-color: $bg-cl;
+  transition: all $t;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  .container {
+    @include size(100%);
+  }
+  .menu {
+    @include size(100%);
+    @include flex(space-between, center);
+    .menu-item {
+      height: 100%;
+      @include flex(center, center);
+      position: relative;
+      padding: 0 20px;
+      a {
+        @include text(1.1rem, Arial, normal, $white-cl, uppercase);
+      }
+      &::before {
+        content: "";
+        @include size(0px, 2px);
+        position: absolute;
+        bottom: 14px;
         left: 0;
-        z-index: 10;
-        .container {
-            @include size(100%);
-        }
-        .menu {
-            @include size(100%);
-            @include flex(space-between, center);
-            .menu-item {
-                height: 100%;
-                @include flex(center, center);
-                position: relative;
-                padding: 0 20px;
-                a {
-                    @include text(1.1rem, Arial, normal, $white-cl, uppercase);
-                }
-                &::before {
-                    content: "";
-                    @include size(0px, 2px);
-                    position: absolute;
-                    bottom: 14px;
-                    left: 0;
-                    background-color: $white-cl;
-                    transform-origin: left;
-                    // transform: scaleX(0);
-                    transition: $t;
-                }
-                &:hover::before {
-                    @include size(100%, 2px);
-                    transform-origin: left;
-                    // transform: scaleX(1);
-                }
-            }
+        background-color: $white-cl;
+        transform-origin: left;
+        // transform: scaleX(0);
+        transition: $t;
+      }
+      &:hover::before {
+        @include size(100%, 2px);
+        transform-origin: left;
+        // transform: scaleX(1);
+      }
+    }
+    img {
+      width: 56px;
+    }
+  }
+
+  @include sm {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  @include xs {
+
+  }
+}
+
+.overlay-menu {
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: all $s;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .menu-left {
+    &.active {
+      transform: translateX(0);
+      opacity: 1;
+      overflow-y: auto;
+    }
+    background-color: #1d2021;
+    max-width: 500px;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 40px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all $t;
+    &-header {
+      @include flex(space-between, center);
+      span {
+        @include text(1.1rem, "A", normal, $white-cl, uppercase);
+        padding: 0 10px;
+      }
+      .contact {
+        @include flex(center, center);
+        a {
+          padding: 0 10px;
+          img {
+            width: 20px;
+            transition: $t;
+          }
+          &:hover {
             img {
-                width: 56px;
+              opacity: 0.4;
             }
+          }
         }
-    }
+      }
 
-    .menu-left {
-        &.active {
-            transform: translateX(0);
-            opacity: 1;
+      .close {
+        display: none;
+      }
+    }
+    &-content {
+      margin-top: 60px;
+      padding: 0 10px;
+      display: flex;
+      .btn-menufeft {
+        position: relative;
+        width: 100px;
+        height: 118px;
+        &::before {
+          content: "";
+          position: absolute;
+          left: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 80px;
+          height: 2px;
+          background-color: $white-cl;
         }
-        background-color: #1d2021;
-        max-width: 500px;
-        width: 100%;
-        position: fixed;
-        z-index: 100;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        padding: 40px;
-        transform: translateX(-100%);
-        opacity: 0;
-        transition: all $t;
-        &-header {
-            @include flex(space-between, center);
+        img {
+          width: 40px;
+        }
+        .close {
+          > img {
+            transition: $t;
+            &:hover {
+              cursor: pointer;
+              opacity: 0.4;
+              transition: $t;
+              transform: scale(0.8);
+            }
+          }
+        }
+        .logo-menuleft {
+          margin-bottom: 34px;
+        }
+      }
+
+      .menu-main {
+        flex: 1;
+        .menu {
+          padding-top: 8px;
+          margin-left: 20px;
+          &-item {
+            padding-bottom: 26px;
+            position: relative;
+            cursor: pointer;
             span {
-                @include text(1.1rem, "A", normal, $white-cl, uppercase);
-                padding: 0 10px;
+              display: block;
+              width: 100%;
+              height: 1px;
+              background-color: #868686;
+              position: absolute;
+              bottom: 13px;
+              opacity: 0;
+              pointer-events: none;
+              transition: all $t;
             }
-            .contact {
-                @include flex(center, center);
-                a {
-                    padding: 0 10px;
-                    img {
-                        width: 20px;
-                        transition: $t;
-                    }
-                    &:hover {
-                        img {
-                            opacity: 0.4;
-                        }
-                    }
-                }
+            &::before {
+              content: "";
+              position: absolute;
+              left: 0;
+              bottom: 13px;
+              @include size(0, 1px);
+              transition: all $s;
+              transition-delay: 0.1s;
             }
-        }
-        &-content {
-            margin-top: 60px;
-            padding: 0 10px;
-            display: flex;
-            .btn-menufeft {
-                position: relative;
-                width: 100px;
-                height: 118px;
+            &:hover::before {
+              @include size(100%, 1px);
+              background-color: $white-cl;
+              z-index: 200;
+            }
+            &:hover {
+              .menu-link {
                 &::before {
-                    content: "";
-                    position: absolute;
-                    left: -20px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 80px;
-                    height: 2px;
-                    background-color: $white-cl;
+                  clip-path: inset(0 0 0 0);
+                  // top: 0;
                 }
-                img {
-                    width: 40px;
-                }
-                .close {
-                    > img {
-                        transition: $t;
-                        &:hover {
-                            cursor: pointer;
-                            opacity: 0.4;
-                            transition: $t;
-                            transform: scale(0.8);
-                        }
-                    }
-                }
-                .logo-menuleft {
-                    margin-bottom: 34px;
-                }
+              }
+              span {
+                opacity: 1;
+                pointer-events: auto;
+              }
             }
-
-            .menu-main {
-                flex: 1;
-                .menu {
-                    padding-top: 8px;
-                    margin-left: 20px;
-                    &-item {
-                        padding-bottom: 26px;
-                        position: relative;
-                        cursor: pointer;
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            left: 0;
-                            bottom: 13px;
-                            @include size(0, 1px);
-                            transition: all $t;
-                        }
-                        &:hover::before {
-                            @include size(100%, 1px);
-                            background-color: $white-cl;
-                        }
-                        &:hover {
-                            .menu-link {
-                                color: $white-cl;
-                            }
-                        }
-                        .menu-link {
-                            @include text(2.6rem, E, normal, $text-menu, uppercase);
-                            transition: all $t;
-                        }
-                        &:last-child {
-                            position: relative;
-                            &::after {
-                                content: "";
-                                position: absolute;
-                                top: 3px;
-                                left: 46px;
-                                @include size(1px, 18px);
-                                background-color: $text-menu;
-                            }
-                            .menu-link {
-                                @include text(1.4rem, Eb, normal, $text-menu, uppercase);
-                                padding-right: 20px;
-                            }
-                            .menu-link:first-child,
-                            .menu-link:last-child {
-                                &:hover {
-                                    color: $white-cl;
-                                }
-                            }
-                        }
-                    }
-                }
+            .menu-link {
+              @include text(2.6rem, E, normal, $text-menu, uppercase);
+              transition: all $t;
+              position: relative;
+              &::before {
+                content: attr(data-text);
+                position: absolute;
+                clip-path: inset(0 100% 0 0);
+                color: $white-cl;
+                // top: 0;
+                left: 0;
+                transition: all $t;
+                transition-delay: 0.1s;
+              }
             }
+            &:last-child {
+              position: relative;
+              &::after {
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: 46px;
+                @include size(1px, 18px);
+                background-color: $text-menu;
+              }
+              .menu-link {
+                @include text(1.4rem, Eb, normal, $text-menu, uppercase);
+                padding-right: 20px;
+              }
+              .menu-link:first-child,
+              .menu-link:last-child {
+                &:hover {
+                  color: $white-cl;
+                }
+              }
+            }
+          }
         }
+      }
     }
+  }
 
-    .menu-mobile {
-        background-color: $bg-cl;
-        height: 50px;
-        width: 100%;
-        .container {
-            @include flex(space-between, center);
+  @include xs {
+    .menu-left {
+      max-width: 100%;
+      margin-top: var(--heightheader);
+      padding: 54px 34px;
+      &-header {
+        > span {
+          display: none;
         }
-
-        &-logo {
-            a {
-                img {
-                    width: 90px;
-                }
+        .contact {
+          span {
+            padding-left: 0;
+            @include text(1.8rem, "A", normal, $white-cl, uppercase);
+          }
+          gap: 30px;
+          a {
+            img {
+              width: 30px;
             }
+          }
         }
+
+        .close {
+          display: block;
+          transition: $t;
+          img {
+            width: 30px;
+          }
+          &:hover {
+            cursor: pointer;
+            opacity: 0.4;
+            transition: $t;
+            transform: scale(0.8);
+          }
+        }
+      }
+      &-content {
+        padding: 0;
+        .btn-menufeft {
+          display: none;
+        }
+        .menu-main {
+          .menu {
+            // text-align: center;
+            margin-left: 0;
+            &-item {
+              .menu-link {
+                @include text(3.6rem, E, normal, $text-menu, uppercase);
+              }  
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+.menu-mobile {
+  &.active {
+    display: block;
+  }
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  @include size(100%, var(--heightheader));
+  background-color: $bg-cl;
+  .container {
+    height: 100%;
+    @include flex(space-between, center);
+  }
+  &-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+    > .line-btn {
+      display: flex;
+      margin-top: inherit;
+      span {
+        &::after,
+        &::before {
+          transform: translate(0, 0);
+        }
+      }
+    }
+    span {
+      @include text(1.8rem, A, 1.8rem, $white-cl, uppercase);
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &-logo {
+    img {
+      width: 60px;
+      display: flex;
+    }
+  }
+  @include xs {
+    display: block;
+  }
+}
+
+.menu-hover {
+  &.hidden {
+    display: none;
+  }
+  @include size(150px);
+  position: absolute;
+  top: 50vh;
+  z-index: 10;
+  padding: 30px 0;
+  cursor: pointer;
+  text-align: center;
+  flex-direction: column;
+  background-color: $bg-cl;
+  transform: translateY(-50%);
+  @include transition($t linear);
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;  
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  .logo {
+    img {
+      max-width: 40px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .logofull {
+    text-align: right;
+    padding-right: 20px;
+    position: relative;
+    display: none;
+    margin-top: -10px;
+    img {
+      width: 90px;
+    }
+    &::before {
+      content: "";
+      @include size(0px);
+      position: absolute;
+      bottom: -10px;
+      background-color: #444444;
+      transform: scaleX(0);
+      @include transition(all 1s);
+    }
+  }
+  .text-menu {
+    display: flex;
+    @include text(1.3rem, arial, 1.3rem, $black-cl, uppercase);
+    padding-left: 20px;
+    display: none;
+  }
+  &:hover {
+    width: 190px;
+    background-color: $white-cl;
+    transition: $t;
+    .logo {
+      display: none;
+    }
+    .line-btn {
+      display: none;
+    }
+    .logofull {
+      display: block;
+      &::before {
+        @include size(88px, 1px);
+        transform: scaleX(1);
+        transition: all 1s;
+      }
+    }
+    .text-menu {
+      display: flex;
+    }
+  }
+
+  @include sm {
+    display: none;
+  }
+
+  @include xs {
+    display: none;
+  }
 }

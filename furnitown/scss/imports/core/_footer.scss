@@ -1,9 +1,7 @@
 // css footer
 footer {
-    --height:530px;
     background-color: $bg-cl;
-    height: var(--height);
-    padding-top: 170px;
+    padding-top: 70px;
     .logo-footer {
         text-align: center;
         position: relative;
@@ -13,7 +11,7 @@ footer {
         gap: 36px;
         margin-bottom: 50px;
         img {
-           width: 90px;
+        //    width: 90px;
         }
         &::before,
         &::after {
@@ -38,6 +36,7 @@ footer {
         margin-top: 26px;
         cursor: pointer;
         transition: $t;
+        padding-bottom: 40px;
         &::before {
             content: "";
             width: 1px;
@@ -54,6 +53,19 @@ footer {
         }
         &:hover {
             color: $white-cl;
+        }
+    }
+
+    @include xs {
+        .footer-info {
+            p {
+                @include text(1.8rem, Arial, 3.2rem, $white-cl, uppercase);
+            }
+        }
+        .backtotop {
+            margin-top: 150px;
+            @include text(1.8rem, Arial, 2rem, #aaaaaa, uppercase);
+            letter-spacing: 0.2em;
         }
     }
 }

@@ -1,0 +1,125 @@
+.newspage {
+    header {
+        width: 100%;
+        height: 100px;
+        .container-fluid {
+            height: 100%;
+            ul {
+                padding-top: inherit;
+                align-items: center;
+                height: 100%;
+                li {
+                    a {
+                        color: $white-cl;
+                    }
+                }
+            }
+        }
+    }
+
+    .banner {
+        height: 450px;
+    }
+
+    .product {
+        position: relative;
+        margin-top: -180px;
+        .new-heading {
+            @include text(2.6rem, E, 5rem, $white-cl, uppercase);
+            padding-bottom: 40px;
+            border-bottom: 1px solid $text-menu;
+        }
+
+        .product-list {
+            padding-top: 60px;
+            &::after {
+                position: inherit;
+            }
+            .row {
+                position: relative;
+                &::after, &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    width: 1px;
+                    height: 97%;
+                    background-color: $text-menu;
+                }
+
+                &::after {
+                    right: calc(100% / 3);
+                }
+                &::before {
+                    left: calc(100% / 3);
+                }
+            }
+            .product-item {
+                margin-bottom: 30px;
+                margin-right: 0;
+                &::after, &::before {
+                    position: inherit;
+                }
+                &:hover {
+                    .info {
+                        background-color: $bg-cl;
+                        transition: all $s;
+                        h4, p, a {
+                          color: $white-cl;
+                          transition: all $s;
+                          img, span {
+                            filter: brightness(0) invert(1);
+                            -webkit-filter: brightness(0) invert(1);
+                          }
+                        }
+                    }
+                }
+                .img {
+                    padding-bottom: 60%;
+                }
+                .info {
+                    transition: all $s;
+                    padding: 36px 20px 25px;
+                    height: 205px;
+                    h4 {
+                        font-size: 1.2rem;
+                        font-family: "A";
+                        text-transform: uppercase;
+                    }
+                    .desc-info {
+                        text-transform: lowercase;
+                        line-height: 2rem;
+                    }
+                    a {
+                        &:hover {
+                            img {
+                                left: 100px;
+                            }
+                            span {
+                                right: 32px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    @include sm {
+        .product {
+            .product-list {
+                .row {
+                    &::before, &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    @include xs {
+        .product {
+
+        }
+    }
+}

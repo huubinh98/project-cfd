@@ -1,0 +1,30 @@
+.productpage {
+	header {
+		ul {
+			li {
+				a {
+					color: $white-cl;
+				}
+			}
+		}
+	}
+
+	.product {
+		&:last-child {
+			&-list {
+				&::after {
+					position: inherit !important;
+				}
+			}
+		}
+		&.mt-70 {
+			margin-top: -70px;
+		}
+
+		@include sm {
+			&.mt-70 {
+				margin-top: -30px;
+			}
+		}
+	}
+}

@@ -1,0 +1,303 @@
+.productdetailspage {
+    .header-details {
+        position: inherit;
+        height: 100px;
+        width: 100%;
+        border-bottom: 1px solid $text-menu;
+        .container-fluid {
+            @include size(100%);
+            @include flex(space-between, center);
+        }
+        .header-left {
+            padding-top: 0;
+        }
+        .logo {
+            img {
+                width: 90px;
+                @include mid;
+            }
+        }
+        .backto-all {
+            a {
+                display: flex;
+                span {
+                    @include text(1.1rem,"A", normal, $black-cl, uppercase);
+                    transition: all $t;
+                    position: relative;
+                    right: 0;
+                }
+                img {
+                    margin-left: 16px;
+                    display: flex;
+                    transform: scale(-1);
+                    width: 30px;
+                    position: relative;
+                    left: 0;
+                    transition: all $t;
+                }
+                &:hover {
+                    opacity: 0.6;
+                    span {
+                        right: -42px;
+                    }
+                    img {
+                        left: -157px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .product-details {
+        --pd: 50px;
+        padding: 50px 0;
+        position: relative;
+        .img {
+            padding-right: 55px;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+            .img-list {
+                width: 100%;
+                max-height: 540px;
+                height: 100%;
+                .img-item {
+                    @include size(100%);
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .btn-details {
+                display: flex;
+                gap: 20px;
+                position: relative;
+                .btn-play {
+                    a {
+                        @include size(60px);
+                        margin-left: 0;
+                        bottom: 0;
+                        transition: all $t;
+                        img {
+                            transition: all $t;
+                        }
+                        &:hover {
+                            opacity: 0.6;
+                            img {
+                                opacity: 0.6;
+                            }
+                        }
+                    }
+                    &.prew {
+                        img {
+                            top: 33%;
+                            left: 36%;
+                            transform: scale(-1);
+                        }
+                    }
+                }
+                .zoom-img {
+                    padding: 10px 25px;
+                    background-color: $bg-cl;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: absolute;
+                    right: 0;
+                    top: -36px;
+                    cursor: pointer;
+                    transition: all $t;
+                    gap: 20px;
+                    p {
+                        @include text(1.1rem, A, 1.1rem, $white-cl, uppercase);
+                        transition: all $t;
+                    }
+                    img {
+                        width: 20px;
+                        transition: all $t;
+                    }
+                    &:hover {
+                        opacity: 0.6;
+                        p, img {
+                            opacity: 0.6;
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+        .details {
+            // max-width: 290px;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 0.5px;
+                height: calc(100% + var(--pd) * 2);
+                background-color: $text-menu;
+                left: 0;
+                top: -50px;
+            }
+            .heading-details {
+                @include text(3.2rem, E, 4rem, $black-cl, uppercase);
+                margin-top: -10px;
+            }
+            .price {
+                margin: 30px 0 34px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                span{
+                    @include text(1.4rem, A, 5.4rem, #5b4816, inherit);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                }
+                .price-show {
+                    width: 50%;
+                    font-size: 1.6rem;
+                }
+            }
+            .info-details {
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    @include text(1.4rem, Arial, 5.4rem, $black-cl, inherit);
+                    letter-spacing: 0.1em;
+                    .title {
+                        // max-width: 130px;
+                        flex: 1;
+                    }
+                    .show-info {
+                        flex: 1;
+                    }
+                }
+                @include xs {
+                    li {
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+
+            .desc-details {
+                margin-top: 20px;
+                .des-heading {
+                    @include text(1.1rem, A, 5.4rem, $black-cl, uppercase);
+                }
+                p {
+                    @include text(1.2rem, Arial, 2rem, $black-cl, inherit);
+                }
+                @include xs {
+                    .des-heading {
+                        font-size: 1.4rem;
+                    }
+                    p {
+                        font-size: 1.8rem;
+                        line-height: 3rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .product-other {
+        padding-top: 90px;
+        border-top: 1px solid $text-menu;
+        &-heading {
+            @include text(1.8rem, E, 4rem, $black-cl, uppercase);
+            text-align: center;
+        }
+
+        .product-list {
+            padding-bottom: 70px;
+        }
+        @include xs {
+            &-heading {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    .contact-info {
+        padding: 70px 0 150px;
+        text-align: center;
+        margin: auto;
+        .btn-service {
+            @include flex(center, center);
+        }
+        .desc {
+            @include text(1.2rem, Arial, 2rem, $black-cl, inherit)
+        }
+        .btn-service {
+            margin-top: 50px;
+        }   
+    }
+
+    @include sm {
+        .product-details {
+            .img {
+                padding-right: 15px;
+                margin-bottom: 50px;
+                .img-list {
+                    .flickity-viewport {
+                        height: 467px !important;
+                    }
+                }
+            }
+            .details {
+                &::before {
+                    display: none;
+                }
+                .price {
+                    margin: 20px 0 0 0;
+                }
+            }
+        }
+        .contact-info {
+            .btn-service {
+                .btn-main {
+                    flex: 1;
+                }
+            }
+        }
+    }
+
+    @include xs {
+        .product-details {
+            margin-top: var(--heightheader);
+            .row {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .img, .details {
+                padding-left: 0;
+                padding-right: 0;
+                .img-list {
+                    .flickity-viewport {
+                        height: 50vh !important;
+                    }
+                }
+            }
+        }
+        .contact-info {
+            .desc {
+                font-size: 1.8rem;
+                line-height: 3rem;
+            }
+            .btn-service {
+                flex-direction: column;
+                gap: 30px;
+                .btn-main {
+                    width: 100%;
+                    &.--ml{
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

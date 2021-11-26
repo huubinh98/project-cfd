@@ -24,6 +24,8 @@ $bg-cl: #132539;
 $btn-cl: #171717;
 $text-menu: #868686;
 
+$yellow-cl: #c48b2c;
+
 $gradient-cl: linear-gradient(180deg, #df1cff 0%, #814bf6 50.55%, #00bcff 100%);
 
 // timing transition - tuỳ chỉnh
@@ -61,6 +63,8 @@ $cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
 
     --body12-fs: 1.2rem;
     --body12-lh: 4rem;
+
+    --heightheader: 70px;
     // Genaral Variable
 
     --gap: 30px; // gap này sử dụng cho gap cột & padding của container, container-fluid
@@ -69,6 +73,9 @@ $cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
     --height-button: 56px;
     --ptop: 150px;
     --pd-section: 120px;
+
+    --pd: 80px;
+    --mt-img: 54px;
 
     @media (max-width: $sm-max) {
         // Tablet

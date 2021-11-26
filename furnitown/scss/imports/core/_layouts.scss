@@ -11,6 +11,7 @@
 }
 html {
     font-size: 62.5%; // => 10px = 1rem
+    scroll-behavior: smooth;
 }
 body {
     width: 100%;
@@ -19,6 +20,7 @@ body {
     @include text(var(--body12-fs), Arial, normal, $black-cl, none); // tuỳ chỉnh
     background: $white-cl;
     position: relative;
+    overflow-x: hidden;
     .container-fluid {
         width: 100%;
         padding-right: var(--gap);
@@ -74,6 +76,9 @@ body {
         // CSS responsive tablet
     }
     @include xs {
+        .mt-mobile {
+            margin-top: 62px;
+          }
         // CSS responsive mobile
     }
     @include xxs {
