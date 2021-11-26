@@ -1,3 +1,9 @@
+
+$(window).on('load', function() {
+    let load = $('.load')
+    load.fadeOut(1000)
+})
+
 function headleMenu() {
     let btnmenuLeft = document.querySelector(".menu-hover");
     let menuLeft = document.querySelector('.menu-left');
@@ -184,15 +190,21 @@ function hadleProduct() {
         friction: 0.5
     })
 
-    $('.prew').on('click', function (e) {
-        e.preventDefault();
-        $(".img-list").flickity('previous')
+    $('.img-group').on('click', '.img-item', function() {
+        var index = $(this).index();
+        $(".productdetailspage .img-list").flickity( 'select', index, false, true );
     })
-    $('.next').on('click', function (e) {
-        e.preventDefault();
-        $(".img-list").flickity('next')
-        $(".productdetailspage .product-list").flickity('next');
-    })
+
+    // $('.prew').on('click', function (e) {
+    //     e.preventDefault();
+    //     $(".img-list").flickity('previous')
+    // })
+    // $('.next').on('click', function (e) {
+    //     e.preventDefault();
+    //     $(".img-list").flickity('next')
+    //     $(".productdetailspage .product-list").flickity('next');
+    // })
+
 
     $('.next1').on('click', function (e) {
         e.preventDefault();

@@ -21,6 +21,7 @@ body {
     background: $white-cl;
     position: relative;
     overflow-x: hidden;
+    @include customscroll($width: 3px, $bgTrack: #000, $bgThumb: #ddd);
     .container-fluid {
         width: 100%;
         padding-right: var(--gap);

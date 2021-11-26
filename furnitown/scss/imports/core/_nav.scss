@@ -212,7 +212,7 @@
                 color: $white-cl;
                 // top: 0;
                 left: 0;
-                transition: all $t;
+                transition: all 0.7s;
                 transition-delay: 0.1s;
               }
             }
@@ -248,6 +248,7 @@
       max-width: 100%;
       margin-top: var(--heightheader);
       padding: 54px 34px;
+      @include customscroll($width: 2px, $bgTrack: #000, $bgThumb: #ddd);
       &-header {
         > span {
           display: none;
