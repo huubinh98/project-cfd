@@ -203,3 +203,9 @@
 		background: $bgThumb;
 	}
 }
+
+@mixin flex($content, $item) {
+	display: flex;
+	justify-content: $content;
+	align-items: $item;
+}

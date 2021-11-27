@@ -55,9 +55,9 @@ $cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
 
     --gap: 30px; // gap này sử dụng cho gap cột & padding của container, container-fluid
 
-    --height-header: 140px;
+    --height-header: 80px;
     --height-button: 56px;
-    --ptop: 70px;
+    --ptop: 150px;
     --pd-section: 120px;
 
     @media (max-width: $sm-max) {
