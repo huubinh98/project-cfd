@@ -193,7 +193,6 @@
               .menu-link {
                 &::before {
                   clip-path: inset(0 0 0 0);
-                  // top: 0;
                 }
               }
               span {
@@ -350,6 +349,8 @@
 }
 
 .menu-hover {
+  -webkit-box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.57); 
+  box-shadow: 0px 2px 10px 1px rgba(0,0,0,0.57);
   &.hidden {
     display: none;
   }

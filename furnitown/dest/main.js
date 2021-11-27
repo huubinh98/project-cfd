@@ -129,7 +129,7 @@ function showMenufixed() {
 function handleslide() {
     $(".slider-list").flickity({
         cellAlign: 'left',
-        autoPlay: 3000,
+        // autoPlay: 3000,
         contain: true,
         wrapAround: true,
         prevNextButtons: false,
@@ -199,11 +199,10 @@ function hadleProduct() {
     //     e.preventDefault();
     //     $(".img-list").flickity('previous')
     // })
-    // $('.next').on('click', function (e) {
-    //     e.preventDefault();
-    //     $(".img-list").flickity('next')
-    //     $(".productdetailspage .product-list").flickity('next');
-    // })
+    $('.next').on('click', function (e) {
+        e.preventDefault();
+        $(".productdetailspage .product-list").flickity('next');
+    })
 
 
     $('.next1').on('click', function (e) {
@@ -276,13 +275,13 @@ function duanBtn() {
             item.innerHTML = current;
             duancurent.innerHTML = duanitem;
             remove()
-            if(current) {
-                duanItem.style = 'display: block'
-            } else {
-                duanItem[index].style = 'display: block'
-            }
-            console.log(duanItem[index]);
-            // duanItem[index].style = 'display: block'
+            // if(current) {
+            //     duanItem.style = 'display: block'
+            // } else {
+            //     duanItem[index].style = 'display: block'
+            // }
+            // console.log(duanItem[index]);
+            duanItem[index].style = 'display: block'
         };
     });
 
