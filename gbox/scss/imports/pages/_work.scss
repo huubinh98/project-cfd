@@ -1,0 +1,39 @@
+.workpage {
+    --mg-bt: 70px;
+    .bottom {
+        @include flex(flex-end, flex-start);
+        margin: 40px auto var(--mg-bt);
+        position: relative;
+        .project__all {
+            position: absolute;
+            top:0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .book {
+            flex-direction: row-reverse;
+            p {
+                max-width: 100px;
+                text-align: right;
+            }
+        }
+        @include sm {
+            --mg-bt: 30px;
+            flex-direction: column-reverse;
+            align-items: center;
+            gap: 60px;
+            .project__all {
+                position: initial;
+                transform: translateX(0);
+
+            }
+            .book {
+                flex-direction: column-reverse;
+                gap: 10px;
+                p {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

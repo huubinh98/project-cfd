@@ -1,0 +1,51 @@
+.aboutpage {
+    header {
+        .header__nav-wrap {
+            border-bottom: none;
+        }
+    }
+    .text__box {
+        background-image: url(../../../img/x.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: left;
+        
+        h1 {
+            margin-left: 0;
+            margin-bottom: 10px;
+            letter-spacing: 0.6em;
+            @include text(3.6rem, pb, 5.8rem, $yellow-cl, uppercase);
+            max-width: 100px;
+        }
+        .container > p {
+            margin: 0;
+            @include text(1.8rem, pl, 4rem, #e4e4e4, none);
+        }
+        .book {
+            margin-top: var(--mg-section);
+            justify-content: flex-start;
+            margin-bottom: 20px;
+            a {
+                background-color: $yellow-cl;
+                color: $text-cl;
+            }
+            p {
+                margin: 0;
+                color: #e4e4e4;
+                max-width: 100px;
+                width: 100%;
+            }
+        }
+    }
+
+    @include xs {
+        .text__box {
+            background-image: url(../../../img/X-mob.jpg);
+            .container > p, .book {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+}

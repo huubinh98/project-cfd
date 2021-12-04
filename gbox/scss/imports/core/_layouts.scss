@@ -17,9 +17,10 @@ body {
     width: 100%;
     max-width: $container-max-width;
     margin: auto;
-    @include text(var(--body12-fs), ir, var(--body12-lh), $black-cl, none); // tuỳ chỉnh
+    @include text(var(--body12-fs), pr, var(--body12-lh), $text-cl, none); // tuỳ chỉnh
     background: $bg-cl;
     position: relative;
+    @include customscroll($width: 0px, $bgTrack: $black-cl, $bgThumb: $bg-cl);
     .container-fluid {
         width: 100%;
         padding-right: var(--gap);

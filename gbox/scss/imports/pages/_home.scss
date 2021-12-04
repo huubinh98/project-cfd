@@ -1,8 +1,30 @@
 // CSS HOMEPAGE
 // Ví dụ
-.schero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.homepage {
+    .text__box {
+        text-align: center;
+        padding: calc(var(--pd-section) - 5px) 0;
+        position: relative;
+        h1 {
+            background-color: $yellow-cl;
+        }
+    }
+
+    .project {
+        .project__all {
+            margin: 40px auto 80px;
+        }
+    }
+
+    @include xs {
+        .text__box {
+            padding-bottom: 0;
+            &::after {
+                display: none;
+            }
+            p {
+                display: none;
+            }
+        }
+    }
 }

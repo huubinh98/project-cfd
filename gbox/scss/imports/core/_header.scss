@@ -1,1 +1,182 @@
 // css header
+header {
+    position: relative;
+    z-index: 10;
+    --sizelogo: 43px;
+    .header__top {
+        background-color: $grey-cl;
+        @include size(100%, var(--header-top));
+        position: relative;
+        z-index: 10;
+        .container {
+            @include flex(space-between, center);
+            @include size(100%);
+        }
+        .hambuger {
+            @include size(20px);
+            position: relative;
+            opacity: 0;
+            pointer-events: none;
+            cursor: pointer;
+            transition: all $t;
+            span {
+                display: block;
+                @include size(20px, 2px);
+                background-color: $yellow-cl;
+                @include mid;
+                @include transition(transform $t);
+            }
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: 27px;
+                height: 2px;
+                background-color: $yellow-cl;
+                @include transform(rotate(0deg) translateY(0));
+                @include transition(transform $t);
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+            &:hover {
+                opacity: $op;
+            }
+
+            &.clicked {
+				&:before {
+				  @include transform(rotate(45deg) translate(5px, 7px));
+				  @include transition(transform $t);
+				}
+				span {
+				  opacity: 0;
+				  @include transition($t);
+				}
+				&:after {
+				  @include transform(rotate(-45deg) translate(6px, -8px));
+				  @include transition(transform $t);
+
+                  @include xs {
+                    @include transform(rotate(-45deg) translate(3px, -5px));
+                  }
+				}
+			  }
+        }
+        .logo {
+            @include size(var(--sizelogo));
+            position: relative;
+            transition: all $t;
+            a {
+                display: block;
+                @include size(100%);
+                img {
+                    @include size(100%);
+                    object-fit: cover;
+                    @include mid;
+                }
+            }
+        }
+        .face {
+            @include size(20px);
+            transition: all $t;
+            a {
+                img {
+                    @include size(100%);
+                    object-fit: cover;
+                }
+            }
+            &:hover {
+                opacity: $op;
+            }
+        }
+    }
+
+    .header__nav {
+        margin-top: 20px;
+        &-wrap {
+            @include flex(space-between, center);
+            border-bottom: 1px solid $black-cl;
+            a {
+                @include text(var(--h3-fs), psb, var(--h3-lh), $text-cl, uppercase);
+                padding: 10px 0;
+                @include transition($t);
+                &:hover {
+                    color: $yellow-cl;
+                }
+            }
+            .menu {
+                @include flex(space-between, center);
+                .menu__item {
+                    a {
+                        @include text(var(--h3-fs), psb, var(--h3-lh), $text-cl, uppercase);
+                        padding: 10px 30px;
+                        @include transition($t);
+                        &:hover {
+                            color: $yellow-cl;
+                        }
+                    }
+                }
+            }
+        }
+    
+            @include sm {
+                display: none;
+            }
+    }
+
+    @include sm {
+        height: 60px;
+        .header__top {
+            position: fixed;
+            .hambuger {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        }
+    }
+
+    @include xs {
+        --sizelogo: 34px;
+        .header__top {
+            .hambuger {
+                height: 16px;
+            }
+        }
+    }
+}
+
+.nav {
+    background-color: $grey-cl;
+    position: fixed;
+    top: 0;
+    left: 0;
+    @include size(100%, 100vh);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: all $t;
+    &.active {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    .nav__list {
+        @include size(100%);
+        @include flex(center, center);
+        flex-direction: column;
+        &-item {
+            margin: 6px 0;
+            a {
+                @include text(2.2rem, psb, 3rem, $yellow-cl, uppercase);
+                letter-spacing: 0.05em;
+                padding: 10px 30px;
+                display: block;
+                transition: all $t;
+                &:hover {
+                    opacity: $op;
+                }
+            }
+        }
+    }
+}
