@@ -197,7 +197,7 @@ footer {
             @include size(20px);
             margin: auto;
             @include transition($t);
-            img {
+            svg {
                 transform: rotate(-90deg);
                 @include size(100%);
                 cursor: pointer;
