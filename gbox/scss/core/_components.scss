@@ -395,7 +395,7 @@ article {
 
 .backto__all {
     @include text(var(--body12-fs), pr, var(--body12-lh), $text-cl, none);
-    img {
+    svg {
         width: 14px;
         transform: rotate(90deg);
         margin-left: 14px;
