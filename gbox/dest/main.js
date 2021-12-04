@@ -1,11 +1,13 @@
 $(window).on('load', function () {
     let load = $('.load')
-    // load.css({
-    //     "transform": "translateY(-100%)",
-    //     "opacity": "0"
-    // })
-    load.fadeOut(2000)
+    load.css({
+        "transform": "translateY(-100%)",
+        "opacity": "0"
+    })
+    AOS.init()
+    load.fadeOut(1500)
 })
+$(".text__box").addClass("active");
 
 $(document).ready(function () {
 

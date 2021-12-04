@@ -162,10 +162,20 @@ article {
         position: absolute;
         bottom: 0;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) scale(0);
         height: 1px;
         width: 320px;
         background-color: $text-cl;
+    }
+
+    &.active {
+        &::after {
+            content: "";
+            transform: translateX(-50%) scale(1);
+            transition: all 0.4s cubic-bezier(0.38, 0.71, 0.71, 0.45);
+            transition-delay: 2000ms;
+            transform-origin: center left;
+        }
     }
 }
 
@@ -198,7 +208,7 @@ article {
         background-color: transparent;
         outline: none;
         line-height: 2rem;
-        @include customscroll(2px, $white-cl, $grey-cl)
+        @include customscroll(2px, $white-cl, $grey-cl);
     }
 }
 
@@ -429,7 +439,7 @@ article {
         display: block;
         transition: all $t;
     }
-     
+
     @include xs {
         --mW: 100%;
     }
@@ -529,33 +539,33 @@ article {
     align-items: center;
     justify-content: center;
     z-index: 100000;
-    // transform: translateY(0);
-    // transition: all 2s;
-    // opacity: 1;
+    transform: translateY(0);
+    transition: all 1.5s;
+    opacity: 1;
     .load_animation {
-      width: 50px;
-      height: 50px;
-      border: 5px solid;
-      color: #3498db;
-      border-radius: 50%;
-      border-top-color: transparent;
-      animation: loader 1.2s linear infinite;
-      z-index: 100000;
-      transform: rotate(0);
-  }
+        width: 50px;
+        height: 50px;
+        border: 5px solid;
+        color: #3498db;
+        border-radius: 50%;
+        border-top-color: transparent;
+        animation: loader 1.2s linear infinite;
+        z-index: 100000;
+        transform: rotate(0);
+    }
 
-  @keyframes loader {
-    25% {
-      color: #34dbb7;
+    @keyframes loader {
+        25% {
+            color: #34dbb7;
+        }
+        50% {
+            color: #1fa185;
+        }
+        75% {
+            color: #73a11f;
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
-    50% {
-      color: #1fa185;
-    }
-    75% {
-      color: #73a11f;
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 }
