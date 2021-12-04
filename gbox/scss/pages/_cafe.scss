@@ -18,7 +18,25 @@
         }
 
         &::after {
-            position: none;
+            position: inherit;
+        }
+        &.--bottom {
+            h4 {
+                margin-bottom: 20px;
+            }
+            h4, p {
+                color: $text-cl;
+                max-width: 450px;
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+            @include xs {
+                p {
+                    margin-bottom: 0;
+                }
+            }
         }
     }
     h5 {
