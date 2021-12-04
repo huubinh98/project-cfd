@@ -5,7 +5,7 @@
         }
     }
     .text__box {
-        background-image: url(../../../img/x.jpg);
+        background-image: url(../../img/x.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -41,7 +41,7 @@
 
     @include xs {
         .text__box {
-            background-image: url(../../../img/X-mob.jpg);
+            background-image: url(../../img/X-mob.jpg);
             .container > p, .book {
                 padding-left: 20px;
                 padding-right: 20px;

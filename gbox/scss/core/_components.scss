@@ -329,12 +329,12 @@ article {
             @include text(var(--body12-fs), psb, var(--body3-lh), $text-cl, uppercase);
             margin-bottom: 10px;
         }
-        img {
+        svg {
             width: 16px;
             @include transition($t);
         }
         &:hover {
-            img {
+            svg {
                 transform: translateY(6px);
             }
         }

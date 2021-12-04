@@ -1,26 +1,26 @@
 /* Core variables and mixins*/
-@import "imports/core/reset";
-@import "imports/core/variables";
-@import "imports/core/mixins";
-@import "imports/core/layouts";
-@import "imports/core/components";
-@import "imports/core/libs";
-@import "imports/core/loading";
-@import "imports/core/boostrap_mini";
+@import "core/reset";
+@import "core/variables";
+@import "core/mixins";
+@import "core/layouts";
+@import "core/components";
+@import "core/libs";
+@import "core/loading";
+@import "core/boostrap_mini";
 
 /* Navigation, header, footer*/
-@import "imports/core/header";
-@import "imports/core/nav";
-@import "imports/core/footer";
+@import "core/header";
+@import "core/nav";
+@import "core/footer";
 
 /* Pages */
-@import "imports/pages/home";
-@import "imports/pages/work";
-@import "imports/pages/projectdetails";
-@import "imports/pages/studio";
-@import "imports/pages/studiodetails";
-@import "imports/pages/rental";
-@import "imports/pages/cafe";
-@import "imports/pages/about";
-@import "imports/pages/contact";
+@import "pages/home";
+@import "pages/work";
+@import "pages/projectdetails";
+@import "pages/studio";
+@import "pages/studiodetails";
+@import "pages/rental";
+@import "pages/cafe";
+@import "pages/about";
+@import "pages/contact";
 
