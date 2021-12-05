@@ -255,12 +255,12 @@
         .contact {
           span {
             padding-left: 0;
-            @include text(1.8rem, "A", normal, $white-cl, uppercase);
+            @include text(1.4rem, "A", normal, $white-cl, uppercase);
           }
           gap: 30px;
           a {
             img {
-              width: 30px;
+              width: 25px;
             }
           }
         }
@@ -269,7 +269,7 @@
           display: block;
           transition: $t;
           img {
-            width: 30px;
+            width: 25px;
           }
           &:hover {
             cursor: pointer;
@@ -288,11 +288,6 @@
           .menu {
             // text-align: center;
             margin-left: 0;
-            &-item {
-              .menu-link {
-                @include text(3.6rem, E, normal, $text-menu, uppercase);
-              }  
-            }
           }
         }
       }

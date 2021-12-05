@@ -59,12 +59,12 @@ footer {
     @include xs {
         .footer-info {
             p {
-                @include text(1.8rem, Arial, 3.2rem, $white-cl, uppercase);
+                @include text(1.4rem, Arial, 3.2rem, $white-cl, uppercase);
             }
         }
         .backtotop {
             margin-top: 150px;
-            @include text(1.8rem, Arial, 2rem, #aaaaaa, uppercase);
+            @include text(1.4rem, Arial, 2rem, #aaaaaa, uppercase);
             letter-spacing: 0.2em;
         }
     }

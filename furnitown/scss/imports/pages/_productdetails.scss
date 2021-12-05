@@ -71,62 +71,6 @@
                     }
                 }
             }
-            // .btn-details {
-            //     display: flex;
-            //     gap: 20px;
-            //     position: relative;
-            //     .btn-play {
-            //         a {
-            //             @include size(60px);
-            //             margin-left: 0;
-            //             bottom: 0;
-            //             transition: all $t;
-            //             img {
-            //                 transition: all $t;
-            //             }
-            //             &:hover {
-            //                 opacity: 0.6;
-            //                 img {
-            //                     opacity: 0.6;
-            //                 }
-            //             }
-            //         }
-            //         &.prew {
-            //             img {
-            //                 top: 33%;
-            //                 left: 36%;
-            //                 transform: scale(-1);
-            //             }
-            //         }
-            //     }
-            //     .zoom-img {
-            //         padding: 10px 25px;
-            //         background-color: $bg-cl;
-            //         display: flex;
-            //         justify-content: space-between;
-            //         align-items: center;
-            //         position: absolute;
-            //         right: 0;
-            //         top: -36px;
-            //         cursor: pointer;
-            //         transition: all $t;
-            //         gap: 20px;
-            //         p {
-            //             @include text(1.1rem, A, 1.1rem, $white-cl, uppercase);
-            //             transition: all $t;
-            //         }
-            //         img {
-            //             width: 20px;
-            //             transition: all $t;
-            //         }
-            //         &:hover {
-            //             opacity: 0.6;
-            //             p, img {
-            //                 opacity: 0.6;
-            //             }
-            //         }
-            //     }
-            // }
             .img-group {
                 display: flex;
                 gap: 10px;
@@ -209,7 +153,7 @@
                         font-size: 1.4rem;
                     }
                     p {
-                        font-size: 1.8rem;
+                        font-size: 1.4rem;
                         line-height: 3rem;
                     }
                 }
@@ -298,7 +242,7 @@
         }
         .contact-info {
             .desc {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
                 line-height: 3rem;
             }
             .btn-service {

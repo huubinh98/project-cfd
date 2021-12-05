@@ -347,15 +347,15 @@
     text-align: center;
     .title {
       padding-bottom: 32px;
-      @include text(6.4rem, E, 6.4rem, $black-cl, uppercase);
+      @include text(4.4rem, E, 4.4rem, $black-cl, uppercase);
       position: relative;
     }
     .desc {
       margin: 0 auto;
-      margin-bottom: 53px;
+      margin-bottom: 30px;
       max-width: 430px;
       width: 100%;
-      @include text(1.8rem, A, 3.6rem, $black-cl, uppercase);
+      @include text(1.4rem, A, 3.6rem, $black-cl, uppercase);
       // &:before {
       //   content: "";
       //   position: absolute;

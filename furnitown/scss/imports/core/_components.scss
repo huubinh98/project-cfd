@@ -123,7 +123,7 @@ article {
   }
 
   @include xs {
-    @include text(2.2rem, A, 2.2rem, $black-cl, uppercase);
+    @include text(1.6rem, A, 2.2rem, $black-cl, uppercase);
   }
 }
 
@@ -165,6 +165,7 @@ article {
     margin-right: 20px;
   }
   @include text(1.1rem, Arial, normal, $white-cl, uppercase);
+  letter-spacing: 0.05em;
   @include xs {
     @include text(1.8rem, Arial, normal, $white-cl, uppercase);
   }
@@ -184,7 +185,7 @@ article {
   @include sm {
   }
   @include xs {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     padding: 16px 50px;
   }
 }
@@ -585,7 +586,7 @@ article {
           // font-weight: bold
         }
         .desc {
-          @include text(1.8rem, Arial, 3rem, $black-cl, inherit);
+          @include text(1.4rem, Arial, 3rem, $black-cl, inherit);
           // text-align: justify;
         }
       }
@@ -638,6 +639,14 @@ article {
       flex-direction: column;
       .btn-service {
         margin: 30px auto 0;
+      }
+    }
+  }
+
+  @include xs {
+    .text-content {
+      .desc {
+        font-size: 1.4rem;
       }
     }
   }

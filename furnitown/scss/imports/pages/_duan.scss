@@ -78,6 +78,17 @@
                         }
                     }
                 }
+                @include xs {
+                    width: 70%;
+                    .duan-curent, .duan-options {
+                        font-size: 1.4rem;
+                        width: 100%;
+                        a {
+                            width: 100%;
+                            
+                        }
+                    }
+                }
             }
         }
     }
